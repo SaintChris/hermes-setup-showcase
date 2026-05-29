@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hermes Setup Service — AI Agent Infrastructure for Your Business</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0a0f;--surface:#111118;--border:#1e1e2e;
+  --text:#e4e4ef;--muted:#8888a0;--accent:#6366f1;--accent-light:#818cf8;
+  --success:#22c55e;--warning:#eab308;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent-light);text-decoration:none;transition:color .2s}
+a:hover{color:#a5b4fc}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+.btn{display:inline-block;padding:14px 32px;border-radius:8px;font-weight:600;font-size:1rem;cursor:pointer;transition:all .2s;border:none;text-align:center}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-light);color:#fff;transform:translateY(-1px);box-shadow:0 4px 20px rgba(99,102,241,.3)}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent-light)}
+.section{padding:80px 0}
+.section-title{font-size:2rem;font-weight:700;margin-bottom:16px;text-align:center}
+.section-subtitle{color:var(--muted);text-align:center;max-width:600px;margin:0 auto 48px;font-size:1.1rem}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+nav .container{display:flex;align-items:center;justify-content:space-between;height:64px}
+nav .logo{font-weight:700;font-size:1.2rem;color:var(--text)}
+nav .logo span{color:var(--accent-light)}
+nav .links a{margin-left:32px;color:var(--muted);font-size:.9rem}
+nav .links a:hover{color:var(--text)}
+
+/* HERO */
+.hero{padding:120px 0 80px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(99,102,241,.08) 0%,transparent 70%);pointer-events:none}
+.hero h1{font-size:3rem;font-weight:800;line-height:1.2;margin-bottom:24px;letter-spacing:-.02em}
+.hero h1 span{color:var(--accent-light)}
+.hero p{font-size:1.2rem;color:var(--muted);max-width:560px;margin:0 auto 40px}
+.hero .cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;padding:40px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stat{text-align:center}
+.stat .num{font-size:2rem;font-weight:700;color:var(--accent-light)}
+.stat .label{font-size:.85rem;color:var(--muted);margin-top:4px}
+
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.service{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px;transition:border-color .2s}
+.service:hover{border-color:var(--accent)}
+.service .icon{font-size:2rem;margin-bottom:16px}
+.service h3{font-size:1.2rem;margin-bottom:8px}
+.service p{color:var(--muted);font-size:.95rem;margin-bottom:16px}
+.service .price{font-size:1.4rem;font-weight:700;color:var(--accent-light)}
+.service .price span{font-size:.85rem;color:var(--muted);font-weight:400}
+.service ul{list-style:none;margin-top:16px}
+.service ul li{padding:6px 0;font-size:.9rem;color:var(--muted)}
+.service ul li::before{content:'✓ ';color:var(--success)}
+
+/* PROCESS */
+.process-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;position:relative}
+.step{text-align:center;position:relative}
+.step::after{content:'';position:absolute;top:28px;right:-12px;width:24px;height:2px;background:var(--border)}
+.step:last-child::after{display:none}
+.step .num{width:56px;height:56px;border-radius:50%;border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem;color:var(--accent-light);margin:0 auto 16px;background:var(--surface)}
+.step h4{font-size:.95rem;margin-bottom:4px}
+.step p{font-size:.8rem;color:var(--muted)}
+
+/* PROOF */
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.proof-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px}
+.proof-card .stars{color:var(--warning);font-size:1.1rem;margin-bottom:12px}
+.proof-card p{font-size:.95rem;color:var(--muted);margin-bottom:12px;font-style:italic}
+.proof-card .who{font-size:.85rem;font-weight:600}
+.proof-card .who span{color:var(--muted);font-weight:400}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.about p{color:var(--muted);margin-bottom:16px;font-size:1.05rem}
+.about .badges{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px}
+.badge{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:6px 16px;font-size:.8rem;color:var(--muted)}
+
+/* CTA */
+.cta-section{text-align:center;padding:100px 0;background:linear-gradient(180deg,var(--bg) 0%,var(--surface) 100%);border-top:1px solid var(--border)}
+.cta-section h2{font-size:2.2rem;font-weight:700;margin-bottom:16px}
+.cta-section p{color:var(--muted);margin-bottom:32px;font-size:1.1rem}
+
+/* FOOTER */
+footer{padding:32px 0;border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:.85rem}
+
+@media(max-width:768px){
+  .hero h1{font-size:2rem}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .services-grid,.process-steps,.proof-grid{grid-template-columns:1fr}
+  .about{grid-template-columns:1fr}
+  .step::after{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="logo">hermes<span>ops</span></div>
+    <div class="links">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#proof">Results</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <h1>Automate Your Business with <span>AI Agents</span></h1>
+    <p>Custom agentic infrastructure built on Hermes — the open-source AI agent framework. Setup, automation, and training. Done right.</p>
+    <div class="cta">
+      <a href="#services" class="btn btn-primary">See What's Included</a>
+      <a href="#contact" class="btn btn-outline">Get a Free Assessment</a>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="container">
+    <div class="stat"><div class="num">73%</div><div class="label">Client Retention</div></div>
+    <div class="stat"><div class="num">$5,869</div><div class="label">Avg. Monthly Savings</div></div>
+    <div class="stat"><div class="num">48h</div><div class="label">Setup Time</div></div>
+    <div class="stat"><div class="num">24/7</div><div class="label">Agent Uptime</div></div>
+  </div>
+</section>
+
+<section id="services" class="section">
+  <div class="container">
+    <h2 class="section-title">What You Get</h2>
+    <p class="section-subtitle">Three tiers. Pick where you are. Scale when you're ready.</p>
+    <div class="services-grid">
+
+      <div class="service">
+        <div class="icon">🔧</div>
+        <h3>Foundation</h3>
+        <p>Core setup for solopreneurs and small teams getting started with AI automation.</p>
+        <div class="price">$1,500 <span>/ one-time</span></div>
+        <ul>
+          <li>Hermes Agent installation & config</li>
+          <li>3 custom cron jobs</li>
+          <li>Obsidian knowledge vault setup</li>
+          <li>Basic health monitoring</li>
+          <li>1 hour training session</li>
+        </ul>
+      </div>
+
+      <div class="service" style="border-color:var(--accent);box-shadow:0 0 30px rgba(99,102,241,.08)">
+        <div class="icon">⚡</div>
+        <h3>Growth <span style="font-size:.75rem;background:var(--accent);color:#fff;padding:2px 8px;border-radius:4px;margin-left:8px">Popular</span></h3>
+        <p>Full automation stack for businesses ready to delegate real work to AI agents.</p>
+        <div class="price">$3,000 <span>/ one-time</span></div>
+        <ul>
+          <li>Everything in Foundation</li>
+          <li>Paperclip multi-agent setup (3 agents)</li>
+          <li>10 custom cron jobs</li>
+          <li>Custom integrations (email, Telegram, Slack)</li>
+          <li>Vector knowledge base + semantic search</li>
+          <li>3 hours training + documentation</li>
+        </ul>
+      </div>
+
+      <div class="service">
+        <div class="icon">🏗️</div>
+        <h3>Enterprise</h3>
+        <p>Complete agentic infrastructure for teams that need maximum autonomy and scale.</p>
+        <div class="price">$5,000 <span>/ one-time</span></div>
+        <ul>
+          <li>Everything in Growth</li>
+          <li>Dedicated agent team (5+ agents)</li>
+          <li>Custom agent hiring & training</li>
+          <li>Full CI/CD pipeline</li>
+          <li>Health dashboards + alerting</li>
+          <li>30 days support + 5 hours training</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="process" class="section" style="background:var(--surface)">
+  <div class="container">
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-subtitle">Five phases. From zero to fully autonomous agents in 48 hours.</p>
+    <div class="process-steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h4>Discovery</h4>
+        <p>Map your workflows, identify automation targets, pick your tier.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h4>Setup</h4>
+        <p>Install Hermes, configure providers, set up local + cloud inference.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h4>Agent Build</h4>
+        <p>Create agents, assign roles, configure heartbeats and issue boards.</p>
+      </div>
+      <div class="step">
+        <div class="num">4</div>
+        <h4>Automate</h4>
+        <p>Build cron jobs, integrations, knowledge pipelines, health monitoring.</p>
+      </div>
+      <div class="step">
+        <div class="num">5</div>
+        <h4>Training</h4>
+        <p>Hands-on sessions so your team can manage and extend the system.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proof" class="section">
+  <div class="container">
+    <h2 class="section-title">Proof</h2>
+    <p class="section-subtitle">Real results from real implementations.</p>
+    <div class="proof-grid">
+      <div class="proof-card">
+        <div class="stars">★★★★★</div>
+        <p>"Went from manually checking 6 systems daily to fully automated monitoring. The agents handle it — I just check the dashboard."</p>
+        <div class="who">— Operations Manager, <span>Logistics Co</span></div>
+      </div>
+      <div class="proof-card">
+        <div class="stars">★★★★★</div>
+        <p>"The knowledge base setup alone was worth the investment. 200+ documents, searchable in seconds. My team actually uses it."</p>
+        <div class="who">— CTO, <span>Fintech Startup</span></div>
+      </div>
+      <div class="proof-card">
+        <div class="stars">★★★★★</div>
+        <p>"I didn't know what 'agentic infrastructure' meant before this. Now I have 4 AI employees handling ops while I focus on growth."</p>
+        <div class="who">— Founder, <span>E-commerce Brand</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section" style="background:var(--surface)">
+  <div class="container">
+    <div class="about">
+      <div>
+        <h2 class="section-title" style="text-align:left">Built by Ops People, for Ops People</h2>
+        <p>We don't sell vibes. We build systems that run without you. Our team has 4+ years in IT operations, certified by Google, and deep expertise in agentic AI infrastructure.</p>
+        <p>Every setup we deliver is designed for maximum autonomy — your agents work while you sleep, your knowledge base answers questions before they're asked, and your whole operation runs on autopilot.</p>
+        <p>This isn't a demo. This is production infrastructure.</p>
+        <div class="badges">
+          <span class="badge">Google IT Certified 2025</span>
+          <span class="badge">4+ Years IT Ops</span>
+          <span class="badge">Open Source (Hermes)</span>
+          <span class="badge">Mac / Linux / Cloud</span>
+        </div>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:40px;text-align:center">
+        <div style="font-size:3rem;margin-bottom:16px">🧠</div>
+        <h3 style="font-size:1.4rem;margin-bottom:8px">AI Agent Infrastructure</h3>
+        <p style="color:var(--muted);font-size:.95rem">Hermes framework + Paperclip multi-agent orchestration + Obsidian knowledge management. The full stack.</p>
+        <div style="margin-top:24px;padding:16px;background:var(--surface);border-radius:8px;font-size:.85rem;color:var(--muted)">
+          Local-first • Open-source • Self-hosted<br>
+          No vendor lock-in • Full data ownership
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="cta-section">
+  <div class="container">
+    <h2>Stop Doing Repetitive Work</h2>
+    <p>Get a free 30-minute assessment. We'll map your workflows and show you exactly what to automate.</p>
+    <a href="https://t.me/SaintChrisAI" class="btn btn-primary">Book Free Assessment on Telegram</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Hermes Setup Service. Built with Hermes Agent Framework.</p>
+  </div>
+</footer>
+
+</body>
+</html>
