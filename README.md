@@ -1,82 +1,38 @@
 # AI Agent Infrastructure Showcase
 
-> **Production AI agent framework with multi-agent orchestration, automated knowledge management, and 24/7 autonomous workflows.**
-> Built on the Hermes agent framework with Paperclip orchestration.
+> Landing page and service showcase for Hermes AI Agent Infrastructure Setup Service.
 
 ## What This Is
 
-A full production AI agent infrastructure setup — not a tutorial, not a toy. This is a live system running 26 autonomous cron jobs handling financial tracking, market analysis, content pipelines, and system operations around the clock.
+A service offering for businesses that want AI agent infrastructure without building it from scratch. Built on the Hermes agent framework with Paperclip orchestration.
 
-## Key Components
+## What's Included
 
-- **6 Specialized Agent Inboxes** — CEO, Market Analyst, Content Growth, Finance, Ops, Research
-- **Paperclip Orchestration** — Multi-agent task delegation and issue tracking
-- **Obsidian Knowledge Management** — Structured knowledge base with automated updates
-- **26 Cron Jobs** — Autonomous workflows running 24/7
-- **PostgreSQL Backend** — Persistent storage with pgvector for semantic search
+- **3 tiers**: Foundation ($1,500), Growth ($3,000), Enterprise ($5,000)
+- **48-hour setup** from discovery to fully autonomous agents
+- **Training included** so your team can manage and extend the system
 
-## Architecture
+## Live Site
 
-```
-                   ┌─────────────────────┐
-                   │   Hermes Framework   │
-                   │   (Agent Runtime)    │
-                   └──────────┬──────────┘
-                              │
-          ┌───────────────────┼───────────────────┐
-          ▼                   ▼                   ▼
-   ┌─────────────┐    ┌─────────────┐    ┌─────────────┐
-   │  Paperclip  │    │  Obsidian   │    │  PostgreSQL │
-   │  (orchestr.)│    │  (knowledge)│    │  (storage)  │
-   └─────────────┘    └─────────────┘    └─────────────┘
-          │
-          ▼
-   ┌─────────────────────────────────────┐
-   │         26 Cron Jobs                │
-   │  P&L · Market · Content · Ops · ... │
-   └─────────────────────────────────────┘
-```
-
-## What It Automates
-
-| Workflow | Frequency | Agent |
-|----------|-----------|-------|
-| P&L Tracking | Weekly | Finance |
-| Market Analysis | Daily | Market Analyst |
-| Content Pipeline | Daily | Content Growth |
-| System Health | Hourly | Ops |
-| Research Digest | Daily | Research |
-| Session Archiving | Per-session | Ops |
+See it in action: [saintlex.sbs/hermes-setup-showcase](https://saintlex.sbs/hermes-setup-showcase)
 
 ## Tech Stack
 
-- **Hermes Framework** — Multi-agent runtime with delegation patterns
-- **Paperclip** — Issue tracking and orchestration
-- **Obsidian API** — Knowledge base management
-- **PostgreSQL + pgvector** — Persistent storage with vector search
-- **Python 3.11+** — Core automation scripts
+- Pure HTML/CSS — no frameworks, no dependencies
+- Responsive design with dark theme
+- Hosted on GitHub Pages
 
 ## Repository Contents
 
 ```
 hermes-setup-showcase/
 ├── index.html          # Landing page / service showcase
-├── docs/               # Setup guides and architecture docs
 └── README.md           (this file)
 ```
 
-## Why This Matters
+## License
 
-This isn't just code — it's a **live production system** that:
-
-1. **Runs autonomously** — 26 scheduled workflows with zero manual intervention
-2. **Manages knowledge** — Automated Obsidian vault updates from agent outputs
-3. **Tracks finances** — Automated P&L reporting and budget monitoring
-4. **Orchestrates agents** — Real multi-agent coordination, not sequential scripts
-
-## Live Demo
-
-See it in action: [saintlex.sbs](https://saintlex.sbs)
+MIT — See [LICENSE](LICENSE)
 
 ---
 
