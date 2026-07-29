@@ -1,16 +1,16 @@
 # AI Agent Infrastructure Showcase
 
-> Landing page and service showcase for Hermes AI Agent Infrastructure Setup Service.
+> Prototype landing page for a proposed Hermes AI agent infrastructure setup service.
 
 ## What This Is
 
-A service offering for businesses that want AI agent infrastructure without building it from scratch. Built on the Hermes agent framework with Paperclip orchestration.
+A portfolio prototype exploring how a Hermes-based setup service could be presented. It is not evidence of completed client deployments or production results.
 
 ## What's Included
 
-- **3 tiers**: Foundation ($1,500), Growth ($3,000), Enterprise ($5,000)
-- **48-hour setup** from discovery to fully autonomous agents
-- **Training included** so your team can manage and extend the system
+- **3 illustrative tiers**: Foundation, Growth, and Enterprise
+- **Example service workflow** from discovery through setup
+- **Example training component** for teams managing the system
 
 ## Live Site
 
